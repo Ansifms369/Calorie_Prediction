@@ -64,6 +64,9 @@ if uploaded_file is not None:
 
         masks = np.array(image.resize((masks.shape[1], masks.shape[0])))
 
+        downsample_factor = 8  # Adjust as needed
+        downsampled_mask = masks[::downsample_factor, ::downsample_factor, :]
+
         # Save uploaded image to disk
         uploaded_image_path = "uploaded_image.jpg"
         image.save(uploaded_image_path)
@@ -124,7 +127,7 @@ if uploaded_file is not None:
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")
         selected_food_index = classNames.index(class_name)
-        non_zero_pixels = np.count_nonzero(masks)
+        non_zero_pixels = np.count_nonzero(downsampled_mask)
         surface_area = non_zero_pixels
         density = food_densities.get(class_name, 0.6)
         volume = surface_area * density
