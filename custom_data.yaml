@@ -1,0 +1,6 @@
+train: /content/drive/MyDrive/YOLOv8-Image-Segmentation/train/images
+val: /content/drive/MyDrive/YOLOv8-Image-Segmentation/valid/images
+test: /content/drive/MyDrive/YOLOv8-Image-Segmentation/test/images
+
+nc: 12
+names: ['Apple','Chapathi','Chicken Gravy','Fries','Idli','Pizza','Rice','Soda','Tomato','Vada','banana','burger']
